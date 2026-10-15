@@ -29,6 +29,11 @@ Este projeto implementa um **inversor de frequência senoidal** gerando uma seno
 | **GND**                     | `GND` | `GND` | `GND` | Terra comum do conversor e osciloscópio |
 | **Saída do Filtro (C)**     | -     | -     | -     | Ponta de prova do osciloscópio ($V_{\text{out}}$) |
 
+### Diagrama Esquemático do Circuito
+![Esquemático do Filtro RC](Docs/esquematico_circuito.png)
+
+> O arquivo vetorial completo está disponível em: [Esquematico_Placa2_Filtro_RC_PWM.pdf](Docs/Esquematico_Placa2_Filtro_RC_PWM.pdf)
+
 ---
 
 ## 3. Comandos UART (Terminal 115200 bps, 8N1)
