@@ -19,14 +19,15 @@ Este projeto implementa um **inversor de frequência senoidal** gerando uma seno
 ---
 
 ## 2. Pinagem de Conexão
-
-| Pino STM32 | Função | Conexão Externa |
-| :--- | :--- | :--- |
-| **`PA8`** | `TIM1_CH1` (PWM 50 kHz) | Entrada do resistor R ($1\text{ k}\Omega$) |
-| **`PA9`** | `USART1_TX` (115200 bps) | RX do Conversor USB-Serial |
-| **`PA10`**| `USART1_RX` (115200 bps) | TX do Conversor USB-Serial |
-| **`GND`** | Referência | GND do Conversor e Garra Jacaré do Osciloscópio |
-| **Saída do Filtro (C)** | Sinal Senoidal Filtrado | Ponta de Prova do Osciloscópio |
+ 
+| Sinal / Função | Black Pill (F411) | STM32H723 | Nucleo-F767ZI | Conexão Externa |
+| :--- | :---: | :---: | :---: | :--- |
+| **PWM (TIM1_CH1 / 50 kHz)** | `PA8` | `PA8` | `PA8` | Entrada do resistor $R = 1,0\text{ k}\Omega$ |
+| **UART TX (115200 bps)**    | `PA9` | `PA9` | `PD8` / `PA9` (ST-Link VCP) | RX do Conversor USB-Serial |
+| **UART RX (115200 bps)**    | `PA10`| `PA10`| `PD9` / `PA10` (ST-Link VCP) | TX do Conversor USB-Serial |
+| **LED Heartbeat**           | `PC13`| `PC13`| `PB0` (Verde) | Indicador de ciclo de execução |
+| **GND**                     | `GND` | `GND` | `GND` | Terra comum do conversor e osciloscópio |
+| **Saída do Filtro (C)**     | -     | -     | -     | Ponta de prova do osciloscópio ($V_{\text{out}}$) |
 
 ---
 
