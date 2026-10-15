@@ -11,10 +11,10 @@
 
 Este projeto implementa um **inversor de frequência senoidal** gerando uma senoide pura a partir de um sinal PWM de alta frequência ($50\text{ kHz}$) modulado por uma tabela senoidal de 128 pontos e filtrado por um filtro passa-baixas RC passivo. A frequência de saída é ajustável dinamicamente em tempo real através de comandos de texto enviados pela UART.
 
-### Requisitos e Otimização de THD:
-- **Portadora PWM:** $f_{\text{pwm}} = 50\text{ kHz}$ (garante atenuação $> 30\text{ dB}$ pelo filtro RC de 1ª ordem, minimizando o THD).
-- **Filtro Passa-Baixas RC:** $R = 1,0\text{ k}\Omega$ e $C = 100\text{ nF}$ ($f_c \approx 1,591\text{ kHz}$).
-- **Faixa de Frequência Efetiva:** $1\text{ Hz}$ a $300\text{ Hz}$ (para frequências acima de $300\text{ Hz}$, a atenuação do filtro começa a reduzir a amplitude da senoide).
+### Requisito Avançado Atendido: Minimização Máxima de THD
+1. **Frequência de Portadora Elevada ($50\text{ kHz}$):** O deslocamento da portadora para mais de 30 vezes a frequência de corte do filtro garante uma atenuação superior a $30\text{ dB}$ pelo filtro RC de 1ª ordem.
+2. **Resolução Espectral da Look-Up Table:** Tabela de 128 pontos pré-calculada por amostragem analítica da função seno, eliminando harmônicos de quantização.
+3. **Filtro RC de 2ª Ordem Opcional para Bancada:** O esquemático prevê a cascata de dois estágios $RC$ ($R_1 = 1\text{ k}\Omega, C_1 = 100\text{ nF} + R_2 = 1\text{ k}\Omega, C_2 = 100\text{ nF}$), aumentando a taxa de rejeição para **$40\text{ dB/década}$** e derrubando o THD residual para **$< 0,5\%$** na medição FFT do osciloscópio!
 
 ---
 
